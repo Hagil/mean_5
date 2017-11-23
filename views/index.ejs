@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="employees">
+
 <head>
     <title>MEAN demo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,8 +10,61 @@
     <script src="js/frontend_app.js"></script>
 
 </head>
-<body>
+
+<body ng-controller="emp_data">
     <h1>MEAN demo</h1>
+    <h2>CREATE</h2>
+    <form>
+        <input type="text" placeholder="name" ng-model="input_name">
+        <input type="text" placeholder="email" ng-model="input_email">
+        <input type="text" placeholder="gender" ng-model="input_gender">
+        <input type="text" placeholder="avatar" ng-model="input_avatar">
+        <button ng-click="create()">create employee</button>
+    </form>
+
+    <h2>READ</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>_id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>gender</th>
+                <th></th>
+                <th>avatar</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="employee in employees">
+            <tr ng-class="{'male': employee.gender == Male, 'female': employee.gender == Female}">
+                <td>{{employee._id}}</td>
+                <td>
+                    <input type="text" ng-model="employee.name">
+                </td>
+                <td>
+                    <input type="text" ng-model="employee.email">
+                </td>
+                <td>
+                    <input type="text" ng-model="employee.gender">
+                </td>
+                <td>
+                <img src="{{employee.avatar}}" alt="">
+                <td>
+                    <input type="text" ng-model="employee.avatar">
+                </td>
+                <td>
+                    <button ng-click="update(employee)">update</button>
+                </td>
+                <td>
+                    <button ng-click="delete(employee)">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
 
 </body>
+
 </html>

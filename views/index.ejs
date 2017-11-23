@@ -20,7 +20,7 @@
         <input type="text" placeholder="email" ng-model="input_email">
         <input type="text" placeholder="gender" ng-model="input_gender">
         <input type="text" placeholder="avatar" ng-model="input_avatar">
-        <button ng-click="create()">create employee</button>
+        <button class="btn btn-primary" ng-click="create()">create employee</button>
     </form>
 
     <h2>READ</h2>
@@ -55,10 +55,10 @@
                     <input type="text" ng-model="employee.avatar">
                 </td>
                 <td>
-                    <button ng-click="update(employee)">update</button>
+                    <button class="btn btn-success" ng-click="update(employee)">update</button>
                 </td>
                 <td>
-                    <button ng-click="delete(employee)">delete</button>
+                    <button class="btn btn-danger" ng-click="delete(employee)">delete</button>
                 </td>
             </tr>
         </tbody>
